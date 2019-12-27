@@ -1,0 +1,127 @@
+<template>
+ <div id="home-container">
+   <!-- 轮播图 -->
+    <mt-swipe :auto="4000">
+      <mt-swipe-item v-for="(item) in carousels" :key="item.id">
+        <img v-lazy='item.img'>
+      </mt-swipe-item>
+    </mt-swipe>
+
+    <!-- 六宫格 -->
+    <div class="six-group">
+      <ul class="mui-table-view mui-grid-view mui-grid-9">
+        <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+          <router-link to="/home/news">
+            <img class="six-menu-img" src="../../assets/images/home/home_menu1.png">
+            <div class="mui-media-body">新闻资讯</div>
+          </router-link>
+        </li>
+        
+        <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+          <router-link to="/home/photoes">
+            <img class="six-menu-img" src="../../assets/images/home/home_menu2.png">
+            <div class="mui-media-body">图片分享</div>
+          </router-link>
+        </li>
+
+        <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+          <a href="#">
+            <img class="six-menu-img" src="../../assets/images/home/home_menu3.png">
+            <div class="mui-media-body">商品购买</div>
+          </a>
+        </li>
+
+        <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+          <a href="#">
+            <img class="six-menu-img" src="../../assets/images/home/home_menu4.png">
+            <div class="mui-media-body">留言反馈</div>
+          </a>
+        </li>
+
+        <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+          <a href="#">
+            <img class="six-menu-img" src="../../assets/images/home/home_menu5.png">
+            <div class="mui-media-body">视频专区</div>
+          </a>
+        </li>
+
+        <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+          <a href="#">
+            <img class="six-menu-img" src="../../assets/images/home/home_menu6.png">
+            <div class="mui-media-body">联系我们</div>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+ </div>
+</template>
+
+<script>
+  import Network from '../../utils/Network'
+
+  export default {
+    name: "home",
+    components: {
+    },
+    created() {
+      this.getCarousels();
+    },
+    data() {
+      return {
+        // 轮播图数组
+        carousels: []
+      };
+    },
+    methods: {
+      // 获取轮播图
+      getCarousels() {
+        Network.get('/api/getlunbo').then((response)=>{
+          if (response.data.status == 0) {
+            this.carousels = response.data.message;
+          } else {
+            console.log('获取轮播图失败');
+          }
+        })
+      }
+    },
+    computed: {
+    },
+    watch: {
+    },
+  };
+</script>
+
+<style lang="scss" scoped>
+  .mint-swipe {
+    height: 200px;
+
+    .mint-swipe-item {
+      &:nth-child(1) {
+        background-color: antiquewhite;
+      }
+      &:nth-child(2) {
+        background-color: yellowgreen;
+      }
+      &:nth-child(3) {
+        background-color: violet;
+      }
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+  .mui-grid-view.mui-grid-9 {
+    background-color: #fff;
+    border: none;
+  }
+  .mui-grid-view.mui-grid-9 .mui-table-view-cell {
+    width: 33.33%;
+    border: none;
+  }
+  .six-menu-img {
+    width: 60px;
+    height: 60px;
+  }
+</style>
