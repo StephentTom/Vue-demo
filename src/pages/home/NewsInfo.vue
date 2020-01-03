@@ -14,9 +14,7 @@
 
 <script>
     import Network from '../../utils/Network'
-    import {
-        Comment
-    } from '../../components/base';
+    import Comment from '../../components/Comment.vue'
 
     export default {
         name: "newsInfo",

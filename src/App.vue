@@ -15,7 +15,8 @@
 </template>
 
 <script>
-  import { NavBar, TabBar } from './components/base'
+  import NavBar from './components/NavBar'
+  import TabBar from './components/Tabbar'
 
   export default {
     name: "app",
@@ -39,7 +40,6 @@
 <style lang="scss" scoped>
   #app-container {
     padding-top: 40px;
-    padding-bottom: 50px;
     overflow-x: hidden;
   }
   

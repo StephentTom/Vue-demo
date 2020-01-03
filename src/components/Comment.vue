@@ -21,9 +21,9 @@
 </template>
 
 <script>
-import '../../libs/bootstrap/css/bootstrap.min.css'
-import {Button} from 'vant'
-import Network from '../../utils/Network'
+import '../libs/bootstrap/css/bootstrap.min.css'
+import { Button } from 'vant'
+import Network from '../utils/Network'
 
 export default {
   name: "comment",

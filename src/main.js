@@ -8,22 +8,25 @@ import 'mint-ui/lib/style.css'
 // 导入 mui 样式
 import './libs/mui/css/mui.min.css'
 import './libs/mui/css/icons-extra.css'
-// 导入 element-ui 样式
-import { Tabs, TabPane, Row, Col, Card, Image } from 'element-ui'
-import 'element-ui/lib/theme-chalk/index.css'
+// 导入图片预览组件
+import VuePreview from 'vue-preview'
 
 Vue.config.productionTip = false
 
 // 引入全部组件
 Vue.use(MintUI)
+Vue.use(VuePreview, {
+  mainClass: 'pswp--minimal--dark',
+  barsSize: {top: 0, bottom: 0},
+  captionEl: false,
+  fullscreenEl: false,
+  shareEl: false,
+  bgOpacity: 0.85,
+  tapToClose: true,
+  tapToToggleControls: false
+})
 
 // 局部引入
-Vue.component(Tabs.name, Tabs);
-Vue.component(TabPane.name, TabPane);
-Vue.component(Row.name, Row);
-Vue.component(Col.name, Col);
-Vue.component(Card.name, Card);
-Vue.component(Image.name, Image);
 
 // 全局过滤器
 Vue.filter('setDateFormat', (dateValue, pattern = 'yyyy-MM-dd HH:mm:ss')=>{

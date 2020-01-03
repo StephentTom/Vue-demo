@@ -48,7 +48,17 @@ const routes = [
     path: '/home/photoes/photoesInfo/:id',
     name: 'photoesInfo',
     component: ()=>import('../pages/home/PhotoesInfo.vue')
-  }
+  },
+  {
+    path: '/home/goods',
+    name: 'goods',
+    component: ()=>import('../pages/home/Goods.vue')
+  },
+  {
+    path: '/home/goods/goodsInfo',
+    name: 'goodsInfo',
+    component: ()=>import('../pages/home/GoodsInfo.vue')
+  },
 ]
 
 const router = new VueRouter({

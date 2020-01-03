@@ -6,7 +6,7 @@
         class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
         <div class="mui-scroll">
           <a :class="['mui-control-item', item.id == 0 ? 'mui-active' : '']" v-for="(item, index) in categorys" :key="item.id"
-            @click.prevent="handleClick(item.id, index)">
+            @tap.prevent="handleClick(item.id, index)">
             {{item.title}}
           </a>
         </div>
@@ -29,7 +29,7 @@
 
 <script>
   import Network from '../../utils/Network';
-  import mui from '../../libs/mui/js/mui.min.js';
+  import '../../libs/mui/js/mui.min.js';
 
   export default {
     name: "photoes",

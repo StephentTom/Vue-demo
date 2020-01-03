@@ -25,10 +25,10 @@
         </li>
 
         <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-          <a href="#">
+          <router-link to="/home/goods">
             <img class="six-menu-img" src="../../assets/images/home/home_menu3.png">
             <div class="mui-media-body">商品购买</div>
-          </a>
+          </router-link>
         </li>
 
         <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
@@ -54,6 +54,12 @@
       </ul>
     </div>
 
+    <div class="six-group">
+      <ul class="mui-table-view mui-grid-view mui-grid-9">
+        
+      </ul>
+    </div>
+
  </div>
 </template>
 
@@ -62,8 +68,7 @@
 
   export default {
     name: "home",
-    components: {
-    },
+    components: {},
     created() {
       this.getCarousels();
     },
