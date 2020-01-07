@@ -40,11 +40,11 @@
             },
 
             getGoodInfo(goodsItem) {
+                // 在vue实例中, 区分$router 与 $route;  $route: 路由参数对象, 关于路由中的参数(params, query)都属于此对想中;  $router: 是一个路由导航对象, 用它可以使用JS代码, 实现路由的push, pop, 跳转到新的 url地址(新界面)
+                // 
                 this.$router.push({
                     name: 'goodsInfo',
-                    params: {
-                        goodsId: goodsItem.id
-                    }
+                    params: { goodsId: goodsItem.id }
                 })
             }
         },

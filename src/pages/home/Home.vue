@@ -1,11 +1,7 @@
 <template>
- <div id="home-container">
-   <!-- 轮播图 -->
-    <mt-swipe :auto="4000">
-      <mt-swipe-item v-for="(item) in carousels" :key="item.id">
-        <img v-lazy='item.img'>
-      </mt-swipe-item>
-    </mt-swipe>
+  <div id="home-container">
+    <!-- 轮播图 -->
+    <Carousel :carousels="carousels" :isfull= true></Carousel>
 
     <!-- 六宫格 -->
     <div class="six-group">
@@ -16,7 +12,7 @@
             <div class="mui-media-body">新闻资讯</div>
           </router-link>
         </li>
-        
+
         <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
           <router-link to="/home/photoes">
             <img class="six-menu-img" src="../../assets/images/home/home_menu2.png">
@@ -56,19 +52,22 @@
 
     <div class="six-group">
       <ul class="mui-table-view mui-grid-view mui-grid-9">
-        
+
       </ul>
     </div>
 
- </div>
+  </div>
 </template>
 
 <script>
-  import Network from '../../utils/Network'
+  import Network from '../../utils/Network';
+  import Carousel from '../../components/Carousel';
 
   export default {
     name: "home",
-    components: {},
+    components: {
+      Carousel
+    },
     created() {
       this.getCarousels();
     },
@@ -81,7 +80,7 @@
     methods: {
       // 获取轮播图
       getCarousels() {
-        Network.get('/api/getlunbo').then((response)=>{
+        Network.get('/api/getlunbo').then((response) => {
           if (response.data.status == 0) {
             this.carousels = response.data.message;
           } else {
@@ -90,41 +89,22 @@
         })
       }
     },
-    computed: {
-    },
-    watch: {
-    },
+    computed: {},
+    watch: {},
   };
 </script>
 
 <style lang="scss" scoped>
-  .mint-swipe {
-    height: 200px;
-
-    .mint-swipe-item {
-      &:nth-child(1) {
-        background-color: antiquewhite;
-      }
-      &:nth-child(2) {
-        background-color: yellowgreen;
-      }
-      &:nth-child(3) {
-        background-color: violet;
-      }
-      img {
-        width: 100%;
-        height: 100%;
-      }
-    }
-  }
   .mui-grid-view.mui-grid-9 {
     background-color: #fff;
     border: none;
   }
+
   .mui-grid-view.mui-grid-9 .mui-table-view-cell {
     width: 33.33%;
     border: none;
   }
+
   .six-menu-img {
     width: 60px;
     height: 60px;
