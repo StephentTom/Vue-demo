@@ -29,7 +29,7 @@
 
 <script>
   import Network from '../../utils/Network';
-  import '../../libs/mui/js/mui.min.js';
+  import mui from '../../libs/mui/js/mui.min.js';
 
   export default {
     name: "photoes",

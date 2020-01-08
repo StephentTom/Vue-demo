@@ -43,12 +43,17 @@ Vue.filter('setDateFormat', (dateValue, pattern = 'yyyy-MM-dd HH:mm:ss')=>{
   let second = date.getSeconds();
 
   if (_pattern == 'yyyy-mm-dd hh:mm:ss') {
-    return `${year}-${month}-${day} ${hour}:${minutes}:${second}`;
+    return `${year}-${prefixInteger(month, 2)}-${prefixInteger(day, 2)} ${prefixInteger(hour, 2)}:${prefixInteger(minutes, 2)}:${prefixInteger(second, 2)}`;
   }
   if (_pattern == 'yyyy-mm-dd') {
-    return `${year}-${month}-${day}`;
+    return `${year}-${prefixInteger(month, 2)}-${prefixInteger(day, 2)}`;
   }
 })
+
+// js 数字前面自动补零; value: 值; n: 需要的长度
+function prefixInteger(value, n) {
+  return (Array(n).join(0) + value).slice(-n);
+}
 
 
 new Vue({

@@ -31,11 +31,12 @@ export default {
     [Button.name]: Button
   },
   created() {
+    console.log(this)
     this.getComments();
   },
   props: {
-    // 新闻id
-    newId: String
+    // id
+    newId: String | Number
   },
   data() {
     return {
@@ -67,8 +68,8 @@ export default {
       if (this.commentText.length == 0) {
         return ;
       }
-      // 另一种拿 newId 从$route.params中获取; .trim(); 去除字符串的头尾空格
-      Network.post('/api/postcomment/' + this.$route.params.id, {
+      // .trim(); 去除字符串的头尾空格
+      Network.post('/api/postcomment/' + this.newId, {
         content: this.commentText.trim()
       })
       .then((response)=>{
@@ -92,6 +93,7 @@ export default {
   #comment-container {
     textarea {
       height: 120px;
+      margin-bottom: 10px;
     }
 
     .cmt-list {

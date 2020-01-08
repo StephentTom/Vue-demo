@@ -1,6 +1,6 @@
 <template>
     <div id="goods-container">
-        <GoodsItem v-for="item in goods" :key="item.id" :goodItem="item" @goodItemAction="getGoodInfo"></GoodsItem>
+        <GoodsItem v-for="item in goods" :key="item.id" :goodItem="item" @goodItemAction="toGoodInfo"></GoodsItem>
 
         <mt-button class="load-button" type="danger" size="large" @click="loadMore">加载更多</mt-button>
     </div>
@@ -39,11 +39,12 @@
                 this.getGoods();
             },
 
-            getGoodInfo(goodsItem) {
+            toGoodInfo(goodsItem) {
                 // 在vue实例中, 区分$router 与 $route;  $route: 路由参数对象, 关于路由中的参数(params, query)都属于此对想中;  $router: 是一个路由导航对象, 用它可以使用JS代码, 实现路由的push, pop, 跳转到新的 url地址(新界面)
-                // 
                 this.$router.push({
                     name: 'goodsInfo',
+                    // 注意: 这里的 goodsId 参数需要与注册路由js文件中 注册跳转界面的path中所传递的参数名一致;
+                    // path: '/home/goods/goodsInfo/:goodsId'
                     params: { goodsId: goodsItem.id }
                 })
             }

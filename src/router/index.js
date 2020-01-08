@@ -55,9 +55,19 @@ const routes = [
     component: ()=>import('../pages/home/Goods.vue')
   },
   {
-    path: '/home/goods/goodsInfo',
+    path: '/home/goods/goodsInfo/:goodsId',
     name: 'goodsInfo',
     component: ()=>import('../pages/home/GoodsInfo.vue')
+  },
+  {
+    path: '/home/goods/goodsInfo/gooddesc/:goodsId',
+    name: 'gooddesc',
+    component: ()=>import('../pages/home/GoodsDesc.vue')
+  },
+  {
+    path: '/home/goods/goodsInfo/goodscomment/:goodsId',
+    name: 'goodscomment',
+    component: ()=>import('../pages/home/GoodsComment.vue')
   },
 ]
 
