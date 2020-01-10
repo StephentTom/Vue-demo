@@ -6,6 +6,8 @@
             <input ref="box" class="mui-input-numbox" type="number" value="1" @change="textChange"/>
             <button class="mui-btn-numbox-plus" type="button">+</button>
         </div>
+
+        <div>{{max}}</div>
     </div>
 </template>
 
@@ -21,12 +23,18 @@
         },
         props: {
             getGoodsCount: Function,
-            // 库存的最大值
-            countMax: String | Number
+            // 库存的最大值;  多个可能的类型
+            countMax: [String, Number],
+            // 另一种定义方式
+            // countMax0: {
+            //     type: [String, Number],
+            //     required: true / false, // 非必设置
+            //     default: 1 // 非必设置
+            // }
         },
         data() {
             return {
-                
+                max: 1
             };
         },
         methods: {
@@ -48,9 +56,9 @@
             //     mui('.mui-numbox').numbox().setOption('max', newValue);
             // }
 
-            countMax: (newValue, oldValue)=>{
-                console.log("新值:", newValue);
-                
+            countMax: function(newValue, oldValue) {
+                console.log("新值:", newValue, oldValue);
+                this.max = newValue;
             }
         }
     };

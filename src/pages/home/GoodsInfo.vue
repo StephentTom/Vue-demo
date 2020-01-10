@@ -32,7 +32,6 @@
                     </p>
 
                     <div class="buy-count">
-                        <!-- 由于 goodInfo对象是请求得到(异步请求), 有可能导致 NumberBox 被渲染后, 请求还未返回. 导致传进去的countMax 属性值为undefine; 解决: 在 NumberBox 中利用watch来监听此 countMax属性 -->
                         购买数量：<NumberBox :countMax="goodInfo.stock_quantity" @getGoodsCount="selGoodsCount"></NumberBox>
                         <van-icon name="cart-circle-o" info="0"/>
                     </div>
