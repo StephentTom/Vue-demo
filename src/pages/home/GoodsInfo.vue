@@ -127,6 +127,15 @@
             // 加入购物车
             addCart() {
                 this.ballFlag = !this.ballFlag;
+
+                // 利用Vuex存储已加入购物车的商品
+                var selGoods = {
+                    id: this.goodsId,
+                    count: this.goodsCount,
+                    price: this.goodInfo.sell_price,
+                    isSelected: true
+                };
+                this.$store.commit('addToCar', selGoods);
             },
 
             // 图文介绍
@@ -147,8 +156,6 @@
             // 获取numberBox中的数量
             selGoodsCount(count) {
                 this.goodsCount = count;
-
-                console.log('父控件数量:', count);
             },
 
             // 小红点进入之前动画

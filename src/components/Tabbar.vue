@@ -43,7 +43,7 @@
         },
         props: {
             // 购物车数量
-            carCount: String,
+            carCount: [String, Number]
         },
         created() {
             
@@ -52,12 +52,12 @@
             return {
                 active: 0,
                 // tabbarItems
-                tabs: ["首页", "会员", "购物车", "搜索"]
+                tabs: ["首页", "会员", "购物车", "搜索"],
             };
         },
         methods: {
             onChange(index) {
-                this.$emit('tabItemClick', this.tabs[index])
+                // this.$emit('tabItemClick', this.tabs[index])
             }
         },
     };

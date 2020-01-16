@@ -1,6 +1,10 @@
 <template>
     <div id="nav-container">
-        <mt-header fixed :title="title"></mt-header>
+        <mt-header fixed :title="title">
+            <span slot="left" @click="goback" v-show="isshowBack">
+                <mt-button icon="back">返回</mt-button>
+            </span>
+        </mt-header>
     </div>
 </template>
 
@@ -10,11 +14,22 @@
         components: {},
         props: {
             title: String,
+            isshowBack: [Boolean, String]
+        },
+        created() {
+            
         },
         data() {
-            return {};
+            return {
+                
+            };
         },
-        methods: {},
+        methods: {
+            // 导航栏点击返回
+            goback() {
+                this.$router.go(-1);
+             }
+        },
     };
 </script>
 
