@@ -1,5 +1,6 @@
 import axios from 'axios';
 import qs from 'qs';
+import CNToast from './Toast';
 
 // 在使用axios时，注意到配置选项中包含params和data两者，以为他们是相同的，实则不然。
 // 因为params是添加到url的请求字符串中的，用于get请求。 
@@ -26,9 +27,11 @@ axios.interceptors.request.use((config)=> {
 
   // 响应拦截处理
 axios.interceptors.response.use((response)=> {
+    CNToast.dismiss();
     // 对响应数据做点什么
     return response;
 }, function (error) {
+    CNToast.dismiss();
     // 对响应错误做点什么
     return Promise.reject(error);
 });
@@ -51,8 +54,9 @@ const erroMessage = (error)=>{
 }
 
 export default class Network {
-    static post(url, params = {}, toast = {status: true, msg: null}) {
-        if (status) { }
+    static post(url, params = {}) {
+        CNToast.loading();
+
         return new Promise((resolve, reject)=>{
             axios.request({
                 method:'POST',
@@ -69,8 +73,9 @@ export default class Network {
         })
     };
 
-    static get(url, params = {}, toast = {status: true, msg: null}) {
-        if (status) { }
+    static get(url, params = {}) {
+        CNToast.loading();
+        
         return new Promise((resolve, reject)=>{
             axios.get(url, {params: params})
             .then((response)=>{

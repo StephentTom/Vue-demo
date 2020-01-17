@@ -31,7 +31,6 @@ export default {
     [Button.name]: Button
   },
   created() {
-    console.log(this)
     this.getComments();
   },
   props: {
@@ -73,7 +72,6 @@ export default {
         content: this.commentText.trim()
       })
       .then((response)=>{
-        console.log(response)
         if (response.data.status == 0) {
           let comment = {
             user_name: '匿名用户',

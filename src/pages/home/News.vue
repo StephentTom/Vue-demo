@@ -28,6 +28,9 @@
     created() {
       this.getNews();
     },
+    mounted() {
+      
+    },
     data() {
       return {
         // 新闻列表数组

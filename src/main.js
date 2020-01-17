@@ -8,13 +8,13 @@ import 'mint-ui/lib/style.css'
 // 导入 mui 样式
 import './libs/mui/css/mui.min.css'
 import './libs/mui/css/icons-extra.css'
-// 导入图片预览组件
+// 导入图片预览组件(图片放大 滑动浏览组件)
 import VuePreview from 'vue-preview'
 
 Vue.config.productionTip = false
 
 // 引入全部组件
-Vue.use(MintUI)
+Vue.use(MintUI);
 Vue.use(VuePreview, {
   mainClass: 'pswp--minimal--dark',
   barsSize: {top: 0, bottom: 0},
@@ -24,7 +24,7 @@ Vue.use(VuePreview, {
   bgOpacity: 0.85,
   tapToClose: true,
   tapToToggleControls: false
-})
+});
 
 // 局部引入
 
