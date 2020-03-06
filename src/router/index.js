@@ -82,6 +82,12 @@ const routes = [
     meta: { title: '商品评论' },
     component: ()=>import('../pages/home/GoodsComment.vue')
   },
+  {
+    path: '/home/contact',
+    name: 'contact',
+    meta: { title: '联系我们' },
+    component: ()=>import('../pages/home/Contact.vue')
+  },
 ]
 
 const router = new VueRouter({

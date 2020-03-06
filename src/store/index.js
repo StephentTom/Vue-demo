@@ -18,6 +18,7 @@ export default new Vuex.Store({
     // 组件调用方式: this.$store.state.xxx
     car: car,
   },
+
   // 相当于组件中的methods: { }, 专门用来操作 state{} 里面的数据
   mutations: {
     // 组件调用方式: this.$store.commit('方法名', 按需传递唯一的参数)
@@ -82,8 +83,11 @@ export default new Vuex.Store({
       localStorage.setItem('cars', JSON.stringify(state.car));
     }
   },
+  
   actions: {},
+
   modules: {},
+
   // 如果 $store中的 state 上的数据, 对外需要提供一层包装, 那么推荐使用getters, 访问getters: this.$store.getters.xxx   
   // 只负责对外提供数据, 不负责修改数据, 如果想修改state中的数据, 则利用  mutations 去操作; 相当于 计算属性 computed: {}; 也相当于 filters
   getters: {

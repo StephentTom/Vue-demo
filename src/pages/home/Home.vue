@@ -42,10 +42,10 @@
         </li>
 
         <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-          <a href="#">
+          <router-link to="/home/contact">
             <img class="six-menu-img" src="../../assets/images/home/home_menu6.png">
             <div class="mui-media-body">联系我们</div>
-          </a>
+          </router-link>
         </li>
       </ul>
     </div>
